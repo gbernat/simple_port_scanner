@@ -22,7 +22,7 @@ Go to the Iteration to run, and execute:
 $ cd simple_port_scanner/Iteration_4
 $ python3 port-scanner.py www.targeturl.com -t 20 -o
 ```
-No additional libs are needed.
+No additional libs are needed. Therefore, no **requirements.txt** file is provided.
 
 Global configuration parameters are in **port_scanner/conf.py**
 Different configurations can be made depending on the Iteration you are in.  
@@ -74,6 +74,16 @@ To keep the number of connections to the target server as low as possible, this 
 ### Iteration 5
 Wraps the previous Iteration into a Docker image.
 
+<u>How to create the image and run from a container:</u>
+- Go to the Iteration_5 directory (where the Dockerfile is) and build the Docker image:
+```
+$ cd simple_port_scanner/Iteration_5
+$ docker build -t gbernat/port-scanner .
+```
+- Run de container, passing the commandline arguments as needed
+```
+$ docker run -it gbernat/port-scanner www.targeturl.com -t 10
+```
 
 ## Outputs
 ### Interactive output
@@ -153,4 +163,21 @@ Time consumed: 1m 53s
 * Only one target per scan
 
 
+## Speed compairson
+Tests to show speed in different Iteractions and settings.  
+All tests were done against the same target host, scanning ports 1 to 1024, with 2 sec as max timeout.
+Destination host has 2 open ports.
 
+1) Iteration 1  
+  Port scanning sequentially.  
+ -> Time consumed: 34m 8s
+
+2) Iteration 4
+ Max concurrent threads: 5  
+ Firewall detection avoidance enabled: False  
+ -> Time consumed: 6m 57s  
+
+3) Iteration 4
+ Max concurrent threads: 30  
+ Firewall detection avoidance enabled: True  
+ -> Time consumed: 1m 53s
