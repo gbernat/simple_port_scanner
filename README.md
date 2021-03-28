@@ -80,7 +80,7 @@ Wraps the previous Iteration into a Docker image.
 $ cd simple_port_scanner/Iteration_5
 $ docker build -t gbernat/port-scanner .
 ```
-- Run de container, passing the commandline arguments as needed
+- Run the container passing commandline arguments as needed
 ```
 $ docker run -it gbernat/port-scanner www.targeturl.com -t 10
 ```
