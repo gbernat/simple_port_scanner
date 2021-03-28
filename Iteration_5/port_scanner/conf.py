@@ -3,9 +3,8 @@ Global configurations
 """
 
 ## Ports range to be scanned (first, last)
-#PORTS_RANGE = (1,1024)
+PORTS_RANGE = (1,1024)
 #PORTS_RANGE = (10,85)
-PORTS_RANGE = (75,85)
 
 ## Max timeout in seconds to testing a connection
 #  If set to None, socket is put in blocking mode (wait until error or socket connection time out)
