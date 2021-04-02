@@ -3,8 +3,9 @@ Global configurations
 """
 
 ## Ports range to be scanned (first, last)
-PORTS_RANGE = (1,1024)
+#PORTS_RANGE = (1,1024)
 #PORTS_RANGE = (10,85)
+PORTS_RANGE = (80,85)
 
 ## Max timeout in seconds to testing a connection
 #  If set to None, socket is put in blocking mode (wait until error or socket connection time out)
@@ -19,6 +20,9 @@ MAX_CONSECUTIVE_PORT_SCAN = 2
 MIN_DELAY = 0.1     # 100ms
 MAX_DELAY = 2
 
+## Set global log level
+# Allowed levels: 'DEBUG','INFO','WARNING','ERROR','CRITICAL'
+LOG_LEVEL = "DEBUG"
 
 
 """"
